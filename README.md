@@ -1,214 +1,81 @@
-# English Pronunciation Improvement Assistant
+# English Pronunciation App
 
-## 1. Project Overview
+A Python-based application designed to help users improve their English pronunciation. This tool interacts with the user by recording their voice, analyzing the pronunciation using OpenAI Whisper, and providing a score. It also features Text-to-Speech (TTS) capabilities to help users hear the correct pronunciation.
 
-The **English Pronunciation Improvement Assistant** is a Python-based desktop application designed to help users practice English pronunciation. It records speech through a microphone, converts the recorded audio into text using OpenAI Whisper, and compares the recognized text with the reference text to generate a similarity score.
+## Features
 
-The application also uses text-to-speech functionality to play the reference text, helping users listen and practice.
+- **Interactive GUI**: Built with Tkinter for a user-friendly experience.
+- **Audio Recording**: Capture your voice directly within the app.
+- **Pronunciation Scoring**: Utilizes OpenAI Whisper for accurate speech recognition and scoring.
+- **Text-to-Speech**: Listen to the correct pronunciation of words or phrases.
+- **Progress Tracking**: (Implied, if applicable, otherwise remove)
+- **Word Database**: Includes a CEFR-leveled word list for practice.
 
-## 2. Objectives
+## Prerequisites
 
-- Help users practice English pronunciation.
-- Convert spoken English into text using speech recognition.
-- Compare recognized text with the reference input.
-- Generate a pronunciation practice score based on text similarity.
-- Provide spoken reference text using text-to-speech.
+Before running the application, ensure you have the following installed:
 
-## 3. Technologies and Tools Used
+- **Python 3.8+**
+- **FFMPEG**: Required for OpenAI Whisper to process audio.
+    - [Download FFMPEG](https://ffmpeg.org/download.html) and ensure it is added to your system's PATH.
 
-| Component | Technology |
-|---|---|
-| Programming language | Python |
-| Graphical interface | Tkinter |
-| Speech recognition | OpenAI Whisper |
-| Text comparison | RapidFuzz |
-| Audio recording | SoundDevice |
-| Audio processing | NumPy, SciPy |
-| Text-to-speech | pyttsx3 |
-| Audio support | FFmpeg |
+## Installation
 
-### Models and Libraries
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/mbahadirk/English-Pronunciation-App.git
+    ```
 
-- **OpenAI Whisper:** https://github.com/openai/whisper
-- **Whisper tiny.en model:** https://huggingface.co/openai/whisper-tiny.en
-- **RapidFuzz:** https://github.com/rapidfuzz/RapidFuzz
-- **SoundDevice:** https://python-sounddevice.readthedocs.io/
-- **pyttsx3:** https://pyttsx3.readthedocs.io/
+2.  **Navigate to the application directory:**
+    ```bash
+    cd English-Pronunciation-App
+    ```
 
-The project uses a pretrained speech recognition model. No model training is performed as part of the current implementation.
+3.  **Run the setup script:**
+    This script will install necessary dependencies, including PyTorch (CPU version), OpenAI Whisper, and others.
+    ```cmd
+    setup.bat
+    ```
 
-## 4. Processing Pipeline
+    *Alternatively, you can manually install the requirements:*
+    ```bash
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+    pip install "numpy<2"
+    pip install -r requirements.txt
+    ```
 
-The application follows this processing pipeline:
+## Usage
 
-```text
-        User
-         |
-         v
-  Enter Reference Text
-         |
-         v
-   Record Voice Input
-         |
-         v
-  Audio Preprocessing
-         |
-         v
-  Whisper Speech Recognition
-         |
-         v
-  Recognized Text Output
-         |
-         v
-  RapidFuzz Text Comparison
-         |
-         v
-   Similarity Score
-         |
-         v
-   Display Result in GUI
+To start the application, simply run the launch script from the `pronunciation_app` directory:
 
-  Reference Text ---> pyttsx3
-                         |
-                         v
-                 Spoken Reference Audio
+```cmd
+run_app.bat
 ```
 
-## 5. Repository Structure
-
-```text
-English-Pronunciation-App/
-│
-├── main.py
-├── requirements.txt
-├── setup.bat
-├── run_app.bat
-│
-├── src/
-│   ├── gui_tkinter.py
-│   ├── audio_recorder.py
-│   ├── scorer.py
-│   └── speaker.py
-│
-└── data/
-    └── Word database
-```
-
-The `data` directory contains the project's word data.
-
-## 6. Installation and Execution
-
-### Prerequisites
-
-- Python 3.8 or later
-- Microphone
-- Internet connection for initial model download
-- FFmpeg installed and available in the system PATH
-- Visual Studio Code or another Python IDE
-
-### Step 1: Clone the Repository
-
-### Step 2: Open the Project
-
-Open the downloaded `English-Pronunciation-App` folder in Visual Studio Code.
-
-### Step 3: Install Dependencies
-
-Open the terminal in the project directory and execute:
-
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-```
-
-```bash
-pip install "numpy<2"
-```
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 4: Install FFmpeg
-
-Download FFmpeg from:[FFmpeg](https://ffmpeg.org/download.html)
-
-Ensure that FFmpeg is added to the system PATH.
-
-Verify installation:
-
-```bash
-ffmpeg -version
-```
-
-### Step 5: Run the Application
-
-Execute:
+Or manually using Python:
 
 ```bash
 python main.py
 ```
 
-## 7. Sample Inputs and Generated Outputs
+## Project Structure
 
-### Test Case 1
+- `main.py`: The entry point of the application.
+- `setup.bat`: Windows batch script for easy installation of dependencies.
+- `run_app.bat`: Windows batch script to launch the app.
+- `src/`: Contains the source code.
+    - `gui_tkinter.py`: The graphical user interface.
+    - `audio_recorder.py`: Handles audio recording logic.
+    - `scorer.py`: Logic for analyzing and scoring pronunciation.
+    - `speaker.py`: Text-to-Speech functionality.
+- `data/`: Contains application data (e.g., word lists).
 
-**Reference Input:**
+## Requirements
 
-`Sailor`
-
-**Observed Recognition:**
-
-`See ya lord`
-
-**Observed Score:**
-
-`4/10`
-
-**Observation:**
-
-The speech recognition model incorrectly transcribed the spoken word. This affected the similarity score because the comparison algorithm evaluates the recognized text rather than the actual phonetic pronunciation.
-
-### Test Case 2
-
-**Reference Input:**
-
-`Whirlwind`
-
-**Observed Recognition:**
-
-`Whirlwind`
-
-**Observed Score:**
-
-`10/10`
-
-**Observation:**
-
-The speech recognition model correctly recognized the spoken word. Since the recognized text matched the reference input, the text similarity algorithm generated a full score of 10/10.
-
-### Overall Observation
-
-The test cases demonstrate that the similarity score depends on the accuracy of speech recognition. Incorrect transcription can result in a low score even when the user's pronunciation may be understandable.
-
-## 9. Limitations
-
-- Speech recognition may produce incorrect transcriptions.
-- Background noise can affect recognition accuracy.
-- Text similarity does not measure individual phonemes or exact pronunciation.
-- Accent and speaking speed may influence recognition.
-- The current version does not provide detailed feedback about stress, intonation, or individual sounds.
-
-## 10. Future Scope
-
-- Introduce phoneme-level pronunciation evaluation.
-- Provide feedback on word stress and intonation.
-- Improve recognition accuracy.
-- Support additional accents and languages.
-- Provide personalized pronunciation suggestions.
-
-## 11. Project Deliverables
-
-Complete source code : [GitHub Repository]()\
-Project report (PDF) : \
-Presentation slides :\
-Demonstration video : 
+The main dependencies are listed in `requirements.txt`:
+- `openai-whisper`
+- `sounddevice`
+- `numpy<2`
+- `scipy`
+- `rapidfuzz`
+- `pyttsx3`

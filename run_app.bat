@@ -1,0 +1,6 @@
+@echo off
+echo Initializing English Pronunciation App...
+
+echo Starting Application...
+python main.py
+pause
