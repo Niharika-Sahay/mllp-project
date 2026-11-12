@@ -25,6 +25,6 @@ A Python-based application designed to help users improve their English pronunci
 
 ## Project Deliverables
 
-- Project Presentation : [Presentation](/Deliverables/English Pronunciation Improvement Assistant.pdf)
+- Project Presentation : [Presentation](https://github.com/Niharika-Sahay/mllp-project/blob/5e1442e7baee06201dedcf86bc4b6873a2e693b4/Deliverables/English%20Pronunciation%20Improvement%20Assistant.pdf)
 - Project Video : [Video](https://drive.google.com/file/d/1t55O_PNw2WzbC1DIvED7R9c2Zw57uHeM/view?usp=sharing)
 - Project Report : [Report](/Deliverables/MLLP-Project Report.pdf)
