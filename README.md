@@ -11,53 +11,6 @@ A Python-based application designed to help users improve their English pronunci
 - **Progress Tracking**: (Implied, if applicable, otherwise remove)
 - **Word Database**: Includes a CEFR-leveled word list for practice.
 
-## Prerequisites
-
-Before running the application, ensure you have the following installed:
-
-- **Python 3.8+**
-- **FFMPEG**: Required for OpenAI Whisper to process audio.
-    - [Download FFMPEG](https://ffmpeg.org/download.html) and ensure it is added to your system's PATH.
-
-## Installation
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/mbahadirk/English-Pronunciation-App.git
-    ```
-
-2.  **Navigate to the application directory:**
-    ```bash
-    cd English-Pronunciation-App
-    ```
-
-3.  **Run the setup script:**
-    This script will install necessary dependencies, including PyTorch (CPU version), OpenAI Whisper, and others.
-    ```cmd
-    setup.bat
-    ```
-
-    *Alternatively, you can manually install the requirements:*
-    ```bash
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
-    pip install "numpy<2"
-    pip install -r requirements.txt
-    ```
-
-## Usage
-
-To start the application, simply run the launch script from the `pronunciation_app` directory:
-
-```cmd
-run_app.bat
-```
-
-Or manually using Python:
-
-```bash
-python main.py
-```
-
 ## Project Structure
 
 - `main.py`: The entry point of the application.
@@ -70,12 +23,8 @@ python main.py
     - `speaker.py`: Text-to-Speech functionality.
 - `data/`: Contains application data (e.g., word lists).
 
-## Requirements
+## Project Delivarables
 
-The main dependencies are listed in `requirements.txt`:
-- `openai-whisper`
-- `sounddevice`
-- `numpy<2`
-- `scipy`
-- `rapidfuzz`
-- `pyttsx3`
+- Project Presentation :
+- Project Video :
+- Project Report :
