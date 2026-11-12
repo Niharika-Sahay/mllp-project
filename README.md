@@ -23,7 +23,7 @@ A Python-based application designed to help users improve their English pronunci
     - `speaker.py`: Text-to-Speech functionality.
 - `data/`: Contains application data (e.g., word lists).
 
-## Project Delivarables
+## Project Deliverables
 
 - Project Presentation :
 - Project Video :
